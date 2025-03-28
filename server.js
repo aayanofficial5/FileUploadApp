@@ -12,7 +12,10 @@ const port = process.env.PORT || 4000; // Use PORT for the server
 
 // middlewares
 app.use(express.json()); // request body json data parser
-app.use(fileUpload()); //  upload files on server 
+app.use(fileUpload({
+  useTempFiles : true,
+  tempFileDir : '/tmp/'
+})); //  upload files on server 
 
 
 // mapping of routes with app
